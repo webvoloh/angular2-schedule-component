@@ -1,0 +1,11 @@
+{
+  "name": "perco-intervals",
+  "version": "1.0.0",
+  "description": "Graphics intervals for work schedules",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PERCo Safety systems",
+  "license": "MIT"
+}

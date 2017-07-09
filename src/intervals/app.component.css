@@ -1,0 +1,159 @@
+.intervals-area {
+  /*display: table;*/
+}
+
+.intervals-block {
+  min-height: 140px;
+  border: 1px solid #D3D3D3;
+  box-shadow: 0 0 6px #EEEEEE;
+  margin: 25px;
+  padding: 0 20px 0 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.intervals-block:hover {
+  box-shadow: 0 0 6px #B4E0FD;
+  border: 1px solid #B4E0FD;
+}
+
+.block-desc {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  font-size: 14px;
+  font-family: 'Verdana', sans-serif;
+}
+
+.timeline {
+  margin: 10px;
+  height: 14px;
+  box-shadow: inset 0 1px 4px 0 #B8B8B8;
+  background: #edeeef;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.interval {
+  width: 15px;
+  display: table;
+  height: inherit;
+  background: #F9C55F;
+  position: absolute;
+  top: 0;
+}
+
+.interval.active {
+  background: #65C587;
+  /*cursor: grabbing;*/
+  z-index: 10;
+}
+
+.intouch {
+  position: absolute;
+  top: 0;
+  height: inherit;
+  width: 10px;
+  background: #757677;
+  cursor: col-resize;
+  display: none
+}
+
+.interval.active .intouch {
+  display: block;
+}
+
+.intouch.left {
+  left: -10px;
+}
+
+.intouch.right {
+  right: -10px;
+}
+
+.interval-time {
+  position: absolute;
+  width: 50px;
+  text-align: center;
+  font-family: monospace;
+  font-size: 14px;
+  color: #747576;
+  border: #fff 1px solid;
+  padding: 0;
+}
+
+.interval-time.left {
+  top: -30px;
+  left: 0;
+  border-left: #bbb 1px solid;
+}
+
+.interval-time.right {
+  bottom: -30px;
+  right:  -51px;
+  /*border-left: #bbb 1px solid;*/
+}
+
+.active .interval-time {
+  border: #bbb 1px solid;
+}
+
+.timetrack {
+  position: absolute;
+  width: 1px;
+  height: 42px;
+  background: #bbb;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.timetrack.left {
+  left: 0;
+  bottom: 0;
+}
+
+.timetrack.right {
+  right: 0;
+  top: 0;
+}
+
+/* Interval types  */
+[data-interval-type="1"], .active[data-interval-type="1"]{
+  background-image: url(assets/img/arrow-right.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+[data-interval-type="2"], .active[data-interval-type="2"]{
+  background-image: url(assets/img/arrow-left.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+[data-interval-type="3"], .active[data-interval-type="3"]{
+  background-image: url(assets/img/arrow-left.png), url(assets/img/arrow-right.png);
+  background-position: right center, left center;
+  background-repeat: no-repeat;
+}
+
+.interval-type {
+  bottom: -19px;
+  position: absolute;
+  display: none;
+}
+
+.active .interval-type {
+  display: block;
+}
+
+.interval-type select {
+  width: 60%;
+  min-width: 80px;
+  background: #eee;
+  border: #ddd 1px solid;
+  font-size: 13px;
+}

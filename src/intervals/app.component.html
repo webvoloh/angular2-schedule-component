@@ -1,0 +1,47 @@
+<div #container class="intervals-area">
+  <div class="intervals-block" *ngFor="let block of blocks; let i = index">
+    <div  *ngIf="block.desc" class="block-desc">{{block.desc}}</div>
+      <div #timelineRef
+        class="timeline"
+        (mousedown)="timelineMouseDown($event)"
+        (mousemove)="timelineMouseMove($event)"
+        (mouseup)="timelineMouseUp()"
+        [attr.area-index]="i"
+        >
+        <ng-container *ngFor="let interval of block.intervals">
+          <!-- Временной интервал -->
+          <div
+            #intervalRef
+            class="interval"
+            [attr.data-interval-type]="interval.type"
+            [attr.data-interval-setter]="renderIntervals(interval, timelineRef, intervalRef)"
+            (click)="intervalClick($event, intervalRef)"
+            (dragstart)="false"
+          >
+            <!-- Левый хвост -->
+            <div class="intouch left"
+                (update)="onDragInterval($event, intervalRef)"
+            ></div>
+            <!-- Засечка левого хвоста -->
+            <div class="timetrack left"></div>
+            <!-- Время левого хвоста -->
+            <input (settime)="handleFromInput($event)" type="text" class="interval-time left" [value]="rangeToTime(interval.begin)">
+            <!-- Правый хвост -->
+            <div class="intouch right"
+                (update)="onDragInterval($event, intervalRef)"
+            ></div>
+            <!-- Засечка правого хвоста -->
+            <div class="timetrack right"></div>
+            <!-- Время правого хвоста -->
+            <input (settime)="handleFromInput($event)" type="text" class="interval-time right" [value]="rangeToTime(interval.end)">
+            <!-- Тип интервала -->
+            <div class="interval-type">
+              <select (change)="setIntervalType($event)" class="settype" [value]="interval.type">
+                <option *ngFor="let type of intervalTypes; let i = index" [value]="i">{{type}}</option>
+              </select>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+  </div>
+</div>
