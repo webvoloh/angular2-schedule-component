@@ -1,8 +1,8 @@
-# Sch``edule Intervals
+# Schedule Intervals
 
 Widget for work schedules and time zones
 
-##Installation:
+###Installation:
 
 `git clone https://github.com/webvoloh/angular2-schedule-component.git`
 
